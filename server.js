@@ -37,6 +37,10 @@ hbs.registerHelper('screamIt', (text) => {
 	return text.toUpperCase();
 });
 
+hbs.registerHelper('portfoliolink', () => {
+	return 'http://daum.net';
+});
+
 app.get('/', (req, res) => {
 	//res.send('<hi>hello, express!</hI>');
 //	res.send({
@@ -59,6 +63,12 @@ app.get('/', (req, res) => {
 	});
 });
 
+app.get('/portfolio', (req, res) => {
+	res.render('portfolio.hbs', {
+		pageTitle: 'Portpolio'
+	});
+});
+
 app.get('/about', (req, res) => {
 	//res.send('About Page');
 	res.render('about.hbs', {
@@ -66,7 +76,6 @@ app.get('/about', (req, res) => {
 		//currentYear: new Date().getFullYear()
 	});
 });
-
 
 app.get('/bad', (req, res) => {
 	res.send({
